@@ -37,7 +37,7 @@
 <body>
     <h2>TAMBAH PASIEN</h2>
     <table align="center" cellpadding="7" cellspacing="10">
-        <form action="index.php" method="post">
+        <form action="create-action.php" method="post">
             <tr>
                 <th>Nama</th>
                 <td><input type="text" name="nama" placeholder="Nama Pasien" required></td>

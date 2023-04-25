@@ -7,27 +7,18 @@ class c_daftarPasien
     {
         $this->model = new m_daftarPasien();
     }
-    public function invoke()
+    public function tampill()
     {
-        if (isset($_POST['save'])) {
-            $this->model->setdaftarPasien(
-                $_POST['nama'],
-                $_POST['umur'],
-                $_POST['kel']
-            );
-        }
-
-
         $pemweb21 = $this->model->getSemuadaftarPasien();
         include 'v_daftarPasien.php';
     }
 
-    function unsetPOST()
-    {
-        if (count($_POST) > 0) {
-            $_POST = array();
-        }
-    }
+// function unsetPOST()
+// {
+//     if (count($_POST) > 0) {
+//         $_POST = array();
+//     }
+// }
 }
 
 
