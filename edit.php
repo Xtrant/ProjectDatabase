@@ -38,7 +38,7 @@
 <body>
     <?php
     include "KoneksiMVC.php";
-    $mod = $mysqli->query("SELECT * FROM daftar_pasien where id = $_GET[id]");
+    $mod = $mysqli->query("SELECT * FROM 05-daftar_pasien where id = $_GET[id]");
     while (
         $edit = mysqli_fetch_array(
             $mod)

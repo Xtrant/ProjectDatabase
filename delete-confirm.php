@@ -54,7 +54,7 @@
 <body>
 <?php
 include('koneksiMVC.php');
-$res = $mysqli->query("SELECT * from daftar_pasien where id=$_GET[id]");
+$res = $mysqli->query("SELECT * from 05-daftar_pasien where id=$_GET[id]");
 while ($paw21 = mysqli_fetch_array(
     $res
 ))

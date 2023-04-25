@@ -2,7 +2,7 @@
 session_start();
 include('koneksiMVC.php');
 if (isset($_POST['username'])) {
-    $lgn = $mysqli->query("SELECT * FROM login where username='$_POST[username]'");
+    $lgn = $mysqli->query("SELECT * FROM 05-login where username='$_POST[username]'");
     $res = mysqli_fetch_array($lgn);
 }
 

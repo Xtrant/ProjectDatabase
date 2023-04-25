@@ -71,7 +71,7 @@ if (isset($_SESSION['status'])) { ?>
                 <?php } ?>
                 <?php
                 include "koneksiMVC.php";
-                $rs = $mysqli->query("SELECT * FROM daftar_pasien");
+                $rs = $mysqli->query("SELECT * FROM 05-daftar_pasien");
                 $dataCount = 1;
                 while (
                     $paw21 = mysqli_fetch_array(
