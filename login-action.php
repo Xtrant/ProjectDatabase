@@ -2,7 +2,7 @@
 session_start();
 include('koneksiMVC.php');
 if (isset($_POST['username'])) {
-    $lgn = $mysqli->query("SELECT * FROM 05-login where username='$_POST[username]'");
+    $lgn = $mysqli->query("SELECT * FROM 05_login where username='$_POST[username]'");
     $res = mysqli_fetch_array($lgn);
 }
 
@@ -11,12 +11,12 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
     if ($res !== null) {
 
-        if ($username == $res['username'] && $password == $res['password']) {
-            $status = $res['status'];
+        if ($username == $res['username'] && $password == $res['pass']) {
+            $status = $res['stats'];
 
-
+            $_SESSION['username'] = $username;
             $_SESSION['status'] = $status;
-            header('location:index.php');
+            header('location:profileee.php');
         }
         else {
             echo "username kamu udah benar cuma password nya salah";
@@ -25,5 +25,5 @@ if (isset($_POST['login'])) {
         echo"wrong username or password";
     }
 } else {
-    echo "loginnn dlu jancooook";
+    header('location:profileee.php');
 }

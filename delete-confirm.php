@@ -54,7 +54,7 @@
 <body>
 <?php
 include('koneksiMVC.php');
-$res = $mysqli->query("SELECT * from 05-daftar_pasien where id=$_GET[id]");
+$res = $mysqli->query("SELECT * from 05_login where username= '$_GET[username]'");
 while ($paw21 = mysqli_fetch_array(
     $res
 ))
@@ -64,15 +64,17 @@ echo "<div class='mid'>
     <caption>Yakin mo dihapus?</caption>
     <tr>
         <th>No</th>
-        <th>Nama Pasien</th>
-        <th>Umur Pasien</th>
-        <th>Keluhan Pasien</th>
+        <th>Nama Lengkap</th>
+        <th>Jenis Kelamin</th>
+        <th>Alamat</th>
+        <th>Keluhan</th>
     </tr>
 
     <tr>
         <td>$_GET[no]</td>
-        <td>$paw21[nama]</td>
-        <td>$paw21[umur]</td>
+        <td>$paw21[nama_lengkap]</td>
+        <td>$paw21[jenis_kelamin]</td>
+        <td>$paw21[alamat]</td>
         <td>$paw21[keluhan]</td>
     </tr>
     
@@ -80,10 +82,10 @@ echo "<div class='mid'>
 </table>
 <h2>Confirm?</h2>
 <div class= 'center'>
-    <a href='delete.php?id=$_GET[id]'>yes</a>
+    <a href='delete.php?username=$_GET[username]'>yes</a>
 </div>
 <div class= 'center2'>
-<a href='index.php'>no</a>
+<a href='detail.php?$paw21[dokter]'>no</a>
 </div>
 
 

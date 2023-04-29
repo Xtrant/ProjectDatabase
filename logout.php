@@ -3,4 +3,4 @@ session_start();
 
 session_destroy();
 echo "success log out";
-header('location:login.php');
+header('location:profileee.php');

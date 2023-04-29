@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>create</title>
+    <title>REGISTER</title>
     <style>
-        h1 {
+        h1{
             text-align: center;
         }
-
         form {
             display: grid;
             padding: 1em;
@@ -26,7 +25,7 @@
             border: 1px solid #9c9c9c;
         }
 
-        form button {
+        form button {   
             background: lightgrey;
             padding: 0.7em;
             width: 100%;
@@ -53,69 +52,55 @@
         input:focus {
             outline: 3px solid gold;
         }
-
+        
         .submit {
             text-align: right;
             padding-right: 60px;
             font-weight: bold;
             font-size: 28px;
         }
-
-        .submit :hover {
+        .submit :hover{
             background-color: gold;
             font-weight: bold;
 
         }
+
+     
     </style>
 </head>
 
 <body>
-    <?php
-    session_start();
-    if (isset($_SESSION['status']) == 'admin') {
-        if (isset($_GET['username'])) {
-            include "KoneksiMVC.php";
-            $mod = $mysqli->query("SELECT * FROM 05_login where username = '$_GET[username]'");
-            while (
-                $edit = mysqli_fetch_array(
-                    $mod
-                )
-            ) {
-                echo " <h1>EDIT</h1>
-        <form action='edit-action.php?username=$edit[username]&dokter=$edit[dokter]' method='post'>
+    
+        <h1>REGISTER</h1>
+        <form action="register-action.php" method="post">
             <p>
-                <label>NAMA LENGKAP</label>
-                <input class='right' type='text' value='$edit[nama_lengkap]' name='fullname'>
+                <label for="">USERNAME</label>
+                <input class="right" type="text" name="user" required>
             </p>
             <p>
-                <label>JENIS KELAMIN</label>
-                <input type='radio' name='gender' value='Pria'>
-                <label>Male</label>
-                <input type='radio' name='gender' value='Wanita'>
-                <label>Female</label>
+                <label for="">PASSWORD</label>
+                <input class="right" type="password" name="pass" required>
+            </p>
+            <p>
+                <label for="">NAMA LENGKAP</label>
+                <input class="right" type="text" name="fullname">
+            </p>
+            <p>
+                <label for="">JENIS KELAMIN</label>
+                <input type="radio" name="gender" value="Pria">
+                <label for="">Male</label>
+                <input type="radio" name="gender" value="Wanita">
+                <label for="">Female</label>
             </p>
 
             <p>
-                <label>ALAMAT</label>
-                <input class='right' type='text' value='$edit[alamat]' name='address'>
+                <label for="">ALAMAT</label>
+                <input class="right" type="text" name="address">
             </p>
 
-            <p class='submit'><input type='submit' name='update' value='UPDATE'></p>
-        </form>";
-            }
+            <p class="submit"><input type="submit" name="daftar" value="DAFTAR"></p>
+        </form>
 
-
-        } else {
-            header('location:detail.php');
-        }
-
-
-    } else {
-        echo "<h1> CAN'T ACCESS THIS PAGE BECAUSE YOU ARE NOT AN ADMIN";
-    }
-
-
-    ?>
 
 
 </body>
